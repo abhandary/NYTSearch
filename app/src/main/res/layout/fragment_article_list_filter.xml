@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context="com.example.akshayb.nytsearch.fragments.ArticleListFilterFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/begin_date"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="26dp"
+        android:id="@+id/textView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/editText"
+        />
+
+    <TextView
+        android:text="@string/sort_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/textView2" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:id="@+id/spinner" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="41dp"
+        android:id="@+id/textView3"
+        android:text="@string/news_desk_values"
+        tools:minLines="2"
+        android:maxLines="2"
+        />
+
+    <CheckBox
+        android:text="@string/arts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignLeft="@id/spinner"
+        android:layout_alignStart="@id/spinner"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3"
+        android:id="@+id/checkBox" />
+
+    <CheckBox
+        android:text="@string/fashiond_amp_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="19dp"
+        android:id="@+id/checkBox2"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_alignLeft="@id/spinner"
+        android:layout_alignStart="@id/spinner"
+        />
+
+    <CheckBox
+        android:text="@string/sports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox2"
+        android:layout_alignLeft="@id/spinner"
+        android:layout_alignStart="@id/spinner"
+        android:layout_marginTop="24dp"
+        android:id="@+id/checkBox3" />
+
+    <Button
+        android:text="@string/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox3"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPurpleHeart"
+        android:textColor="@color/colorWhisper"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/button" />
+
+
+</RelativeLayout>
