@@ -24,6 +24,7 @@ import com.example.akshayb.nytsearch.Article;
 import com.example.akshayb.nytsearch.ArticleArrayAdapter;
 import com.example.akshayb.nytsearch.R;
 import com.example.akshayb.nytsearch.fragments.ArticleListFilterFragment;
+import com.example.akshayb.nytsearch.models.SearchFilter;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -182,8 +183,9 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
         });
     }
 
+
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void onFragmentInteraction(SearchFilter searchFilter) {
 
     }
 }

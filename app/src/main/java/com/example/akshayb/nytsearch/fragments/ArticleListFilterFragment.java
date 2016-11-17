@@ -11,14 +11,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.akshayb.nytsearch.R;
+import com.example.akshayb.nytsearch.models.SearchFilter;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
@@ -40,7 +44,12 @@ public class ArticleListFilterFragment extends DialogFragment {
     private String mParam1;
     private String mParam2;
 
+    Date     beginDate;
     EditText etDate;
+    CheckBox cbArts;
+    CheckBox cbFashion;
+    CheckBox cbSports;
+    Spinner  spinner;
 
     private OnFragmentInteractionListener mListener;
 
@@ -77,7 +86,7 @@ public class ArticleListFilterFragment extends DialogFragment {
 
     private void setupSpinner(View view) {
         // 1. Get the spinner
-        Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
+        this.spinner = (Spinner) view.findViewById(R.id.spinner);
         // 2. Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.sort_order_items, android.R.layout.simple_spinner_item);
@@ -99,6 +108,29 @@ public class ArticleListFilterFragment extends DialogFragment {
         });
     }
 
+    private void setupCheckBoxes(View view) {
+        this.cbArts = (CheckBox) view.findViewById(R.id.cbArts);
+        this.cbFashion  = (CheckBox) view.findViewById(R.id.cbFashion);
+        this.cbSports   = (CheckBox) view.findViewById(R.id.cbSports);
+    }
+
+
+
+    private void setupButton(View view) {
+        Button saveButton = (Button) view.findViewById(R.id.button);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onButtonPressed();
+                closefragment();
+            }
+        });
+    }
+
+    private void closefragment() {
+        dismiss();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -108,15 +140,25 @@ public class ArticleListFilterFragment extends DialogFragment {
         // 2. setup views
         setupSpinner(view);
         setupDatePicker(view);
+        setupButton(view);
+        setupCheckBoxes(view);
 
         // 3. return view
         return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed() {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+
+            // 1. set the appropriate search filter values.
+            SearchFilter filter = new SearchFilter();
+            filter.setSortOldest(spinner.getSelectedItemPosition() == 0 ? true : false);
+            filter.setArts(cbArts.isChecked());
+            filter.setFashionAndStyle(cbFashion.isChecked());
+            filter.setSports(cbSports.isChecked());
+
+            mListener.onFragmentInteraction(filter);
         }
     }
 
@@ -163,6 +205,6 @@ public class ArticleListFilterFragment extends DialogFragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(SearchFilter searchFilter);
     }
 }

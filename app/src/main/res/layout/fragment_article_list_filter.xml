@@ -24,10 +24,10 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textView"
         android:layout_toEndOf="@+id/textView"
-        android:layout_marginLeft="32dp"
+        android:layout_marginLeft="22dp"
         android:layout_marginEnd="26dp"
         android:layout_marginRight="26dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="22dp"
         android:layout_marginTop="50dp"
         android:id="@+id/etDate"
         />
@@ -78,7 +78,7 @@
         android:layout_alignStart="@id/spinner"
         android:layout_toRightOf="@+id/textView3"
         android:layout_toEndOf="@+id/textView3"
-        android:id="@+id/checkBox" />
+        android:id="@+id/cbArts" />
 
     <CheckBox
         android:text="@string/fashiond_amp_style"
@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="19dp"
-        android:id="@+id/checkBox2"
+        android:id="@+id/cbFashion"
         android:layout_toRightOf="@+id/textView3"
         android:layout_toEndOf="@+id/textView3"
         android:layout_alignLeft="@id/spinner"
@@ -97,17 +97,17 @@
         android:text="@string/sports"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/checkBox2"
+        android:layout_below="@+id/cbFashion"
         android:layout_alignLeft="@id/spinner"
         android:layout_alignStart="@id/spinner"
         android:layout_marginTop="24dp"
-        android:id="@+id/checkBox3" />
+        android:id="@+id/cbSports" />
 
     <Button
         android:text="@string/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/checkBox3"
+        android:layout_below="@+id/cbSports"
         android:layout_centerHorizontal="true"
         android:background="@color/colorPurpleHeart"
         android:textColor="@color/colorWhisper"
