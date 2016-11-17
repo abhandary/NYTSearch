@@ -1,17 +1,26 @@
 package com.example.akshayb.nytsearch.fragments;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.akshayb.nytsearch.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +39,8 @@ public class ArticleListFilterFragment extends DialogFragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    EditText etDate;
 
     private OnFragmentInteractionListener mListener;
 
@@ -76,12 +87,29 @@ public class ArticleListFilterFragment extends DialogFragment {
         spinner.setAdapter(adapter);
     }
 
+    private void setupDatePicker(View view) {
+        this.etDate = (EditText) view.findViewById(R.id.etDate);
+        this.etDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerFragment newFragment = new DatePickerFragment();
+                newFragment.setOndateSet(ondate);
+                newFragment.show(getFragmentManager(), "datePicker");
+            }
+        });
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // 1. Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_article_list_filter, container, false);
+
+        // 2. setup views
         setupSpinner(view);
+        setupDatePicker(view);
+
+        // 3. return view
         return view;
     }
 
@@ -108,6 +136,20 @@ public class ArticleListFilterFragment extends DialogFragment {
         super.onDetach();
         mListener = null;
     }
+
+    DatePickerDialog.OnDateSetListener ondate = new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            SimpleDateFormat dateF = new SimpleDateFormat("EEE, d MMM yyyy", Locale.getDefault());
+            Calendar cal = new GregorianCalendar();
+            cal.set(year, month, dayOfMonth);
+            String date =  dateF.format(cal.getTime());
+            etDate.setText(date);
+
+            Log.d("DEBUG", year + "" + month + "" + dayOfMonth + "");
+        }
+    };
+
+
 
     /**
      * This interface must be implemented by activities that contain this
