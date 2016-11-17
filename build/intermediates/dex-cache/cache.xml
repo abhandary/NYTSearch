@@ -2,6 +2,15 @@
 <items version="2" >
 
     <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_d996a2aa67fbfb79ae0370b3457c75d6c6915165/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
@@ -18,6 +27,15 @@
         revision="24.0.3"
         sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.9_650999a061a58c70b5a144506ffd8d08a8b39698.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.2.1_e1f9bb53a0c13f015cbb113e90b602dc053dccc0/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -47,6 +65,15 @@
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_2e155edf2afbb12b05bcddd5120a44cfad64f35e.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/akshayb/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/android-async-http-1.4.9_650999a061a58c70b5a144506ffd8d08a8b39698/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
         jumboMode="true"
@@ -65,6 +92,33 @@
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_ae2b0cd37555cee9a8876654c8daf22b406ca398.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/akshayb/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_a18bd2dda4448bd2527d297aee801d1d8c748892/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_bfd7bf87109d9045fd801d184d9074db879a57c3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_032b3e491b2bd12b594f56dc67c82f472f1c341b/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
@@ -72,6 +126,15 @@
         revision="24.0.3"
         sha1="dec9eeccf7a38950d6b4145532cc5ad1c83c92fd">
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/instant-run_86d31f2ce6556098b2e06202a2f414b3f97e2905.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_464488f820b615141e8b0101074f3f25ee055f51/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -119,6 +182,15 @@
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_94746a91ae3894be417942ecfc3077382c44b652.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_ccdcb9c812b97ec8859b51faec23a8b68cd42151/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
@@ -146,6 +218,24 @@
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_ed46a85149ee9c725ed9b91f3f39ee9f2a520051.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/akshayb/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_58623d64a71078b1399a8221cbb030267464b93e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/.gradle/caches/modules-2/files-2.1/org.parceler/parceler-api/1.1.1/d081ad6f7c51627ebe2dbf157cc525cbf5e9c821/parceler-api-1.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d081ad6f7c51627ebe2dbf157cc525cbf5e9c821">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/parceler-api-1.1.1_4903d02bf1e7044938fdb58fa1ea71afd773fb0f/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
         jumboMode="true"
@@ -153,6 +243,33 @@
         revision="24.0.3"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_57768bcc5f496c24436a0413338e752cf8fbd3a4.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_46f9de16d6e98ad7c39f8090b4c67df36e9dc972/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_08f46feaeb765d61d5ca13f876cbe8c4a682074f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/httpclient-4.3.6_602c5ceb0ae4e7638cffa7b5b33d81afb4987533/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -164,6 +281,15 @@
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_072bac5203c57b39ebc285f9d5abcd0518e62e9c.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_1d1d8e3c1591f0b733dbf1d80926b62ca042e3de/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
@@ -171,6 +297,24 @@
         revision="24.0.3"
         sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_289993dc5e66c48f0a0ca3fc1877b2592b923d14.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_a682aebc63deded6dafbb4c8cd984efcbf7f649f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b2f65b81c125fdf705f3d63e6c4840cd25395372">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_9181af7db0eb9840e2753f6bfc1148adcc84676e/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -191,6 +335,24 @@
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/parceler-api-1.1.1_4903d02bf1e7044938fdb58fa1ea71afd773fb0f.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_396eb5e2b08ffdb06062afbe9b8f95e52a5bcfa6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_3cdfebd909f45f53455cc327ac458a8331a5d1f0/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
         jumboMode="true"
@@ -200,6 +362,33 @@
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_6d82be162ef33aa2066b2a4ae61b95c07f9db342.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_af59b8a712afbd4d331dcc2cce76d3100efbeda3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_b791abaea2a7d4b9e9c0777b345c2a64f0ac41d1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="dd0c893daaed900b4f075026d0fae64b440c2c3b">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_aeca1bc56c6d131dd1564306304be07cae24dbac/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
@@ -207,6 +396,24 @@
         revision="24.0.3"
         sha1="867dad63c33388ff8c7644b236579355036d075f">
         <dex dex="/Users/akshayb/code/codepath/NYTSearch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_8804939cdb577f7f6a310dc67dae2ab29ad32d22.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_5080b7a12645bc84370623b5199a4164d5574554/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/akshayb/code/everything_else/abhandary/NYTSearch/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_158fc41f68ef9663aec21d9b7b3c0552ed2ff60c/classes.dex" />
     </item>
 
 </items>
