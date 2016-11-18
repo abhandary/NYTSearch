@@ -32,41 +32,71 @@ public class ArticleArrayAdapter extends ArrayAdapter<Article> {
         TextView  tvTitle;
     }
 
+    private static class TextOnlyViewHolder {
+        TextView  tvTitle;
+    }
+
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        // 1. get the data item for the position
+        // get the data item for the position
         Article article = getItem(position);
 
-        ViewHolder viewHolder;
-        // 2. check to see if the view is being recycled
-        if (convertView == null) {
-            // 3. if it's not being recycled then inflate the view
-            LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-            convertView = layoutInflater.inflate(R.layout.item_article_result, parent, false);
-            viewHolder = new ViewHolder();
-            convertView.setTag(viewHolder);
 
-            // 4. find the views
-            viewHolder.ivImage = (ImageView) convertView.findViewById(R.id.ivImage);
-            viewHolder.tvTitle  = (TextView) convertView.findViewById(R.id.tvTitle);
-        } else {
-            // 5. get the view holder associated with the recycled convertView
-            viewHolder = (ViewHolder) convertView.getTag();
+        if (article.getThumbNail().length() == 0) {
+            TextOnlyViewHolder viewHolder;
+
+            // check to see if the view is being recycled
+            if (convertView == null) {
+                //  if it's not being recycled then inflate the view
+                LayoutInflater layoutInflater = LayoutInflater.from(getContext());
+                convertView = layoutInflater.inflate(R.layout.item_article_text_only, parent, false);
+                viewHolder = new TextOnlyViewHolder();
+                convertView.setTag(viewHolder);
+
+                // find the title view
+                viewHolder.tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
+            } else {
+                // get the view holder associated with the recycled convertView
+                viewHolder = (TextOnlyViewHolder) convertView.getTag();
+            }
+
+            // set the title on the view holder
+            viewHolder.tvTitle.setText(article.getHeadline());
         }
+        else {
+            ViewHolder viewHolder;
 
-        // 6. clear out the recycled image from convertview from last time.
-        viewHolder.ivImage.setImageResource(0);
+            // check to see if the view is being recycled
+            if (convertView == null) {
+                // if it's not being recycled then inflate the view
+                LayoutInflater layoutInflater = LayoutInflater.from(getContext());
+                convertView = layoutInflater.inflate(R.layout.item_article_result, parent, false);
+                viewHolder = new ViewHolder();
+                convertView.setTag(viewHolder);
 
-        viewHolder.tvTitle.setText(article.getHeadline());
+                // find the views
+                viewHolder.ivImage = (ImageView) convertView.findViewById(R.id.ivImage);
+                viewHolder.tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
+            } else {
+                // get the view holder associated with the recycled convertView
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
 
-        // populate the thumbnail image
-        // download the image in the background
-        String thumbNail = article.getThumbNail();
+            // clear out the recycled image from convertview from last time.
+            viewHolder.ivImage.setImageResource(0);
 
-        if (!TextUtils.isEmpty(thumbNail)) {
-            Picasso.with(getContext()).load(thumbNail).into(viewHolder.ivImage);
+            // set the title of the view holder
+            viewHolder.tvTitle.setText(article.getHeadline());
+
+            // populate the thumbnail image
+            // download the image in the background
+            String thumbNail = article.getThumbNail();
+
+            if (!TextUtils.isEmpty(thumbNail)) {
+                Picasso.with(getContext()).load(thumbNail).into(viewHolder.ivImage);
+            }
         }
 
         return convertView;
