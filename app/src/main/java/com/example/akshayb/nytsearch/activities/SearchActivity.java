@@ -34,7 +34,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcels;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 import cz.msebera.android.httpclient.Header;
 import android.support.v7.widget.SearchView;
@@ -50,6 +54,7 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
     ArrayList<Article> articles;
     ArticleArrayAdapter adapter;
     ProgressDialog progress;
+    SearchFilter   searchFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,7 +123,7 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
             public boolean onMenuItemClick(MenuItem menuItem) {
 
                 FragmentManager fm = getSupportFragmentManager();
-                ArticleListFilterFragment filterFragment = ArticleListFilterFragment.newInstance("", "");
+                ArticleListFilterFragment filterFragment = ArticleListFilterFragment.newInstance(searchFilter);
                 filterFragment.show(fm, "fragment_edit_name");
 
                 return true;
@@ -153,12 +158,45 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
         params.put("page", "0");
         params.put("q", query);
 
+        if (this.searchFilter != null) {
+            if (this.searchFilter.isSortOldest() == false) {
+                params.put("sort", "newest");
+            }
+            if (this.searchFilter.getBeginDate() != null) {
+                SimpleDateFormat dateF = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
+                String date =  dateF.format(searchFilter.getBeginDate());
+                params.put("begin_date", date);
+            }
+
+            if (this.searchFilter.isArts() ||
+                    this.searchFilter.isFashionAndStyle() ||
+                    this.searchFilter.isSports()) {
+
+                StringBuilder builder = new StringBuilder();
+                builder.append("news_desk:(");
+                if (this.searchFilter.isArts()) {
+                    builder.append("\"Arts\"");
+                }
+                if (this.searchFilter.isFashionAndStyle()) {
+                    builder.append("\"Fashion & Style\"");
+                }
+                if (this.searchFilter.isSports()) {
+                    builder.append("\"Sports\"");
+                }
+                builder.append(")");
+
+                String filteredQueryString = builder.toString();
+                params.put("fq", filteredQueryString);
+            }
+        }
+
         progress = new ProgressDialog(this);
         progress.setTitle("Loading");
         progress.setMessage("Searching...");
         progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
         progress.show();
         adapter.clear();
+
         client.get(url, params, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -175,6 +213,13 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
             }
 
             @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.e("ERROR", throwable.toString());
+                progress.dismiss();
+                Toast.makeText(getApplicationContext(), "Search Failed", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 // Log.e("ERROR", errorResponse.toString());
                 progress.dismiss();
@@ -186,6 +231,6 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
 
     @Override
     public void onFragmentInteraction(SearchFilter searchFilter) {
-
+        this.searchFilter = searchFilter;
     }
 }

@@ -20,11 +20,15 @@ import android.widget.Spinner;
 import com.example.akshayb.nytsearch.R;
 import com.example.akshayb.nytsearch.models.SearchFilter;
 
+import org.parceler.Parcel;
+import org.parceler.Parcels;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,12 +41,9 @@ import java.util.Locale;
 public class ArticleListFilterFragment extends DialogFragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String SEARCH_FILTER = "search_filter";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    SearchFilter searchFilter;
 
     Date     beginDate;
     EditText etDate;
@@ -61,17 +62,19 @@ public class ArticleListFilterFragment extends DialogFragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param searchFilter search filter to use as current settings
      * @return A new instance of fragment ArticleListFilterFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ArticleListFilterFragment newInstance(String param1, String param2) {
+    public static ArticleListFilterFragment newInstance(SearchFilter searchFilter) {
         ArticleListFilterFragment fragment = new ArticleListFilterFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+
+        // parcel and inject the search filter if it isn't null.
+        if (searchFilter != null) {
+            Bundle args = new Bundle();
+            args.putParcelable("search_filter", Parcels.wrap(searchFilter));
+            fragment.setArguments(args);
+        }
         return fragment;
     }
 
@@ -79,8 +82,7 @@ public class ArticleListFilterFragment extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            this.searchFilter = Parcels.unwrap(getArguments().getParcelable(SEARCH_FILTER));
         }
     }
 
@@ -94,9 +96,16 @@ public class ArticleListFilterFragment extends DialogFragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // 4. Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+        // 5. check if there was a search filter passed in
+        if (searchFilter != null) {
+            spinner.setSelection(searchFilter.isSortOldest() ? 0 : 1);
+        }
     }
 
     private void setupDatePicker(View view) {
+
+        // 1. init the date instance variable
         this.etDate = (EditText) view.findViewById(R.id.etDate);
         this.etDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,12 +115,29 @@ public class ArticleListFilterFragment extends DialogFragment {
                 newFragment.show(getFragmentManager(), "datePicker");
             }
         });
+
+
+        // 2. If a search filter was passed in then use it to set default
+        if (this.searchFilter != null && searchFilter.getBeginDate() != null) {
+            SimpleDateFormat dateF = new SimpleDateFormat("EEE, d MMM yyyy", Locale.getDefault());
+            String date =  dateF.format(searchFilter.getBeginDate());
+            etDate.setText(date);
+        }
     }
 
     private void setupCheckBoxes(View view) {
+
+        // 1. init the views
         this.cbArts = (CheckBox) view.findViewById(R.id.cbArts);
         this.cbFashion  = (CheckBox) view.findViewById(R.id.cbFashion);
         this.cbSports   = (CheckBox) view.findViewById(R.id.cbSports);
+
+        // 2. if there was a search filter passed in, then set the defaults
+        if (searchFilter != null) {
+            this.cbArts.setChecked(searchFilter.isArts());
+            this.cbFashion.setChecked(searchFilter.isFashionAndStyle());
+            this.cbSports.setChecked(searchFilter.isSports());
+        }
     }
 
 
@@ -157,7 +183,9 @@ public class ArticleListFilterFragment extends DialogFragment {
             filter.setArts(cbArts.isChecked());
             filter.setFashionAndStyle(cbFashion.isChecked());
             filter.setSports(cbSports.isChecked());
+            filter.setBeginDate(beginDate);
 
+            // 2. send the filter via listener
             mListener.onFragmentInteraction(filter);
         }
     }
@@ -185,8 +213,9 @@ public class ArticleListFilterFragment extends DialogFragment {
             Calendar cal = new GregorianCalendar();
             cal.set(year, month, dayOfMonth);
             String date =  dateF.format(cal.getTime());
-            etDate.setText(date);
 
+            beginDate = cal.getTime();
+            etDate.setText(date);
             Log.d("DEBUG", year + "" + month + "" + dayOfMonth + "");
         }
     };

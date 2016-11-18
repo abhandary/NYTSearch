@@ -1,11 +1,14 @@
 package com.example.akshayb.nytsearch.models;
 
+import org.parceler.Parcel;
+
 import java.util.Date;
 
 /**
  * Created by akshayb on 11/16/16.
  */
 
+@Parcel
 public class SearchFilter {
 
     Date beginDate;
