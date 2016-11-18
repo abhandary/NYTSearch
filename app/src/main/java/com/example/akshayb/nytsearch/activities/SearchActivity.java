@@ -24,6 +24,7 @@ import com.example.akshayb.nytsearch.Article;
 import com.example.akshayb.nytsearch.ArticleArrayAdapter;
 import com.example.akshayb.nytsearch.R;
 import com.example.akshayb.nytsearch.fragments.ArticleListFilterFragment;
+import com.example.akshayb.nytsearch.listeners.EndlessScrollListener;
 import com.example.akshayb.nytsearch.models.SearchFilter;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -43,6 +44,8 @@ import java.util.Locale;
 import cz.msebera.android.httpclient.Header;
 import android.support.v7.widget.SearchView;
 
+import static com.example.akshayb.nytsearch.R.id.btnSearch;
+
 
 public class SearchActivity extends AppCompatActivity implements ArticleListFilterFragment.OnFragmentInteractionListener {
 
@@ -50,11 +53,12 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
 
     EditText etQueryText;
     GridView gvResults;
-    Button btnSearch;
+
     ArrayList<Article> articles;
     ArticleArrayAdapter adapter;
     ProgressDialog progress;
     SearchFilter   searchFilter;
+    String queryString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +66,12 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
         setContentView(R.layout.activity_search);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        setupViews();;
+        setupGridView();
     }
 
-    private void setupViews() {
 
+    private void setupGridView() {
         gvResults = (GridView) findViewById(R.id.gvResults);
-        btnSearch = (Button) findViewById(R.id.btnSearch);
         articles = new ArrayList<>();
         adapter = new ArticleArrayAdapter(this, articles);
         gvResults.setAdapter(adapter);
@@ -88,6 +91,17 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
                 startActivity(intent);
             }
         });
+        gvResults.setOnScrollListener(new EndlessScrollListener() {
+            @Override
+            public boolean onLoadMore(int page, int totalItemsCount) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to your AdapterView
+                loadNextDataFromApi(page, queryString);
+                // or loadNextDataFromApi(totalItemsCount);
+                return true; // ONLY if more data is actually being loaded; false otherwise.
+            }
+        });
+
     }
 
     @Override
@@ -106,7 +120,9 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
                 // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is used
                 // see https://code.google.com/p/android/issues/detail?id=24599
                 searchView.clearFocus();
-                searchForArticle(query);
+                queryString = query;
+                adapter.clear();
+                loadNextDataFromApi(0, query);
                 return true;
             }
 
@@ -148,7 +164,7 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
         return super.onOptionsItemSelected(item);
     }
 
-    public void searchForArticle(String query) {
+    public void loadNextDataFromApi(int page, String query) {
 
         // Toast.makeText(this, "Searching for " + query, Toast.LENGTH_LONG).show();
         AsyncHttpClient client = new AsyncHttpClient();
@@ -195,7 +211,6 @@ public class SearchActivity extends AppCompatActivity implements ArticleListFilt
         progress.setMessage("Searching...");
         progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
         progress.show();
-        adapter.clear();
 
         client.get(url, params, new JsonHttpResponseHandler(){
             @Override

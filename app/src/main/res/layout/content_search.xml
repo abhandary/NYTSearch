@@ -23,7 +23,6 @@
         android:layout_below="@+id/btnSearch"
         android:id="@+id/gvResults"
         android:numColumns="4">
-
     </GridView>
 
 </RelativeLayout>
